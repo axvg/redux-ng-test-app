@@ -7,8 +7,8 @@
 
 <div class="row text-center">
   <div class="col">
-    <button type="button" class="btn btn-primary ms-1" (click)="increaseCounter()" (changeCounter)="counter = $any($event)">Increase</button>
-    <button type="button" class="btn btn-info ms-1" (click)="decreaseCounter()" (changeCounter)="counter = $any($event)">Decrease</button>
+    <button type="button" class="btn btn-primary ms-1" (click)="increaseCounter()">Increase</button>
+    <button type="button" class="btn btn-info ms-1" (click)="decreaseCounter()">Decrease</button>
   </div>
 </div>
 
@@ -16,7 +16,7 @@
 
 <div class="row text-center">
   <div class="col">
-    <app-child [counter]="counter">
+    <app-child [counter]="counter" (changeCounter)="counter = $event">
     </app-child>
   </div>
 </div>
