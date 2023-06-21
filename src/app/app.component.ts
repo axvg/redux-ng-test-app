@@ -17,21 +17,17 @@ export class AppComponent {
   counter!: number;
 
   increaseCounter() {
-    // this.counter++;
     this.store.dispatch(actions.increment())
   }
   
-
   decreaseCounter() {
-    // this.counter--;
     this.store.dispatch(actions.decrement())
   }
 
   constructor(private store: Store<AppState>) {
-    this.store
-    .subscribe( state =>{
-      console.log(state);
-      this.counter = state.counter;
+    this.store.select('counter')
+    .subscribe( counter =>{
+      this.counter = counter;
     })
   }
 }
