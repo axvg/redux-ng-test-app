@@ -7,3 +7,11 @@
         <button class="btn btn-info ms-1" (click)="divideCounter()">Divide</button>
     </div>
 </div>
+
+<hr>
+
+<div class="row">
+    <div class="col">
+        <app-grand-child [counter]="counter" (counterChange)="resetGrandChild($event)"></app-grand-child>
+    </div>
+</div>
