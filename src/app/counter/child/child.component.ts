@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-child',
@@ -6,5 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./child.component.scss']
 })
 export class ChildComponent {
+  @Input() counter!: number;
+  @Output() public changeCounter = new EventEmitter<number>();
 
+  multiplyCounter(){
+    this.counter *= 2;
+    this.changeCounter.emit(this.counter);
+  }
+
+  divideCounter(){
+    this.counter /= 2;
+    this.changeCounter.emit(this.counter);
+  }
+
+  constructor() {}
 }
